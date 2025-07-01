@@ -1,0 +1,29 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 01-07-2025
+Platform    - Code Forces
+Round       - 1034 (Division 3)
+*/
+
+//1034 - A. Blackboard Game
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int Cases;
+    int Number;
+    
+    cin >> Cases;
+    
+    for(int X = 0; X < Cases; X++)
+    {
+        cin >> Number;
+        
+        string Answer = (Number % 4) ? "Alice" : "Bob";
+        
+        cout << Answer << "\n";
+    }
+}
