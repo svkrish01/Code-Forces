@@ -1,0 +1,29 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 28-08-2025
+Platform    - Code Forces
+Round       - 1046 (Division 2)
+*/
+
+//1046 - A. In the Dream
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int Cases;
+    int A, B, C, D;
+    
+    cin >> Cases;
+    
+    for(int X = 0; X < Cases; X++)
+    {
+        cin >> A >> B >> C >> D;
+        
+        string Answer = (max(A, B) > 2 * (min(A, B) + 1) || max(C - A, D - B) > 2 * (min(C - A, D - B) + 1)) ? "NO" : "YES";
+        
+        cout << Answer << "\n";
+    }
+}
