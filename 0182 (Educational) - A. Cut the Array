@@ -1,0 +1,84 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 15-09-2025
+Platform    - Code Forces, Educational
+Round       - 182 (Division 2)
+*/
+
+//0182 (Educational) - A. Cut the Array
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void Solution()
+{
+    int Sum = 0;
+    int Check = 0;
+    
+    vector<int> Values;
+    vector<int> Sums;
+    int Number;
+    
+    cin >> Number;
+    
+    for(int X = 0; X < Number; X++)
+    {
+        int Temp;
+        
+        cin >> Temp;
+        
+        Sum += (Temp % 3);
+        
+        Values.push_back(Temp % 3);
+        Sums.push_back(Sum);
+    }
+    
+    for(int X = 0; X < Number-1; X++)
+    {
+        for(int Y = X+1; Y < Number; Y++)
+        {
+            if(((Sums[X] % 3) == ((Sums[Y] - Sums[X]) % 3)) && ((Sums[Y] - Sums[X]) % 3) == ((Sum - Sums[Y]) % 3))
+            {
+                Check = 1;
+                
+                cout << X+1 << ' ' << Y+1 << '\n';
+            }
+            else if((Sums[X] % 3) + ((Sums[Y] - Sums[X]) % 3) + ((Sum - Sums[Y]) % 3) == 3)
+            {
+                Check = 1;
+                
+                cout << X+1 << ' ' << Y+1 << '\n';
+            }
+            
+            if(Check == 1)
+            {
+                break;
+            }
+        }
+        
+        if(Check == 1)
+        {
+            break;
+        }
+    }
+    
+    if(Check == 0)
+    {
+        cout << 0 << ' ' << 0 << '\n';
+    }
+}
+
+
+int main()
+{
+    int Cases;
+    int Number;
+    
+    cin >> Cases;
+    
+    for(int X = 0; X < Cases; X++)
+    {
+        Solution();
+    }
+}
