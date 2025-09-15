@@ -1,0 +1,123 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 15-09-2025
+Platform    - Code Forces, Educational
+Round       - 182 (Division 2)
+*/
+
+//182 (Educational) - B. Maximum Cost Permutation
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void Solution()
+{
+    int Zeros = 0;
+    
+    int Number;
+    vector<int> Values;
+    
+    cin >> Number;
+    
+    int Sum = ((Number) * (Number+1)) / 2;
+    int Cost = Number;
+    
+    for(int X = 0; X < Number; X++)
+    {
+        int Temp;
+        
+        cin >> Temp;
+        
+        Sum -= Temp;
+        
+        if(Temp == 0)
+        {
+            Zeros++;
+        }
+        
+        Values.push_back(Temp);
+    }
+    
+    if(Zeros == 1)
+    {
+        for(int X = 0; X < Number; X++)
+        {
+            if(Values[X] == 0)
+            {
+                Values[X] = Sum;
+                Zeros--;
+                
+                break;
+            }
+        }
+    }
+    
+    if(Zeros == 0)
+    {
+        for(int X = 0; X < Number; X++)
+        {
+            if(Values[X] != X+1)
+            {
+                break;
+            }
+            
+            Cost--;
+        }
+        
+        for(int X = Number-1; X >= 0; X--)
+        {
+            if(Values[X] != X+1)
+            {
+                break;
+            }
+            
+            Cost--;
+        }
+    }
+    else
+    {
+        for(int X = 0; X < Number; X++)
+        {
+            if(Values[X] != X+1 || Values[X] == 0)
+            {
+                break;
+            }
+            
+            Cost--;
+        }
+        
+        for(int X = Number-1; X >= 0; X--)
+        {
+            if(Values[X] != X+1 || Values[X] == 0)
+            {
+                break;
+            }
+            
+            Cost--;
+        }
+    }
+
+    if(Cost < 1)
+    {
+        cout << 0 << '\n';
+    }
+    else
+    {
+        cout << Cost << '\n';
+    }
+}
+
+
+int main()
+{
+    int Cases;
+    int Number;
+    
+    cin >> Cases;
+    
+    for(int X = 0; X < Cases; X++)
+    {
+        Solution();
+    }
+}
