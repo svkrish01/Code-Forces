@@ -1,0 +1,73 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 15-09-2025
+Platform    - Code Forces, Educational
+Round       - 182 (Division 2)
+*/
+
+//0182 (Educational) - C. Non-Descending Arrays
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void Solution()
+{
+    int Number;
+    vector<int> A, B, C, D;
+    
+    long long Combinations = 2;
+    
+    cin >> Number;
+    
+    for(int X = 0; X < Number; X++)
+    {
+        int Temp;
+        
+        cin >> Temp;
+        
+        A.push_back(Temp);
+    }
+    
+    for(int X = 0; X < Number; X++)
+    {
+        int Temp;
+        
+        cin >> Temp;
+        
+        B.push_back(Temp);
+    }
+    
+    for(int X = 0; X < Number; X++)
+    {
+        C.push_back(min(A[X], B[X]));
+        
+        D.push_back(max(A[X], B[X]));
+    }
+    
+    for(int X = 1; X < Number; X++)
+    {
+        if(D[X-1] <= C[X])
+        {
+            Combinations *= 2;
+            
+            Combinations %= 998244353;
+        }
+    }
+    
+    cout << Combinations << '\n';
+}
+
+
+int main()
+{
+    int Cases;
+    int Number;
+    
+    cin >> Cases;
+    
+    for(int X = 0; X < Cases; X++)
+    {
+        Solution();
+    }
+}
