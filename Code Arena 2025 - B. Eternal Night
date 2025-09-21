@@ -1,0 +1,74 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 21-09-2025
+Platform    - Code Forces, Code Arena 2025 (CP Guild Recruitment)
+Round       - 182 (Division 2)
+*/
+
+//Code Arena 2025 - B. Eternal Night
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void Solution()
+{
+    int Min_Colours = 1;
+        
+    int M, N;
+    
+    cin >> M >> N;
+    
+    if(M > 1)
+    {
+        Min_Colours *= 2;
+    }
+    
+    if(N > 1)
+    {
+        Min_Colours *= 2;
+    }
+    
+    cout << Min_Colours << '\n';
+    
+    for(int X = 0; X < M; X++)
+    {
+        int Colour;
+        
+        for(int Y = 0; Y < N; Y++)
+        {
+            if(X % 2 == 0)
+            {
+                if(Y % 2 == 0)
+                {
+                    Colour = 1;
+                }
+                else
+                {
+                    Colour = 2;
+                }
+            }
+            else
+            {
+                if(Y % 2 == 0)
+                {
+                    Colour = 3;
+                }
+                else
+                {
+                    Colour = 4;
+                }
+            }
+            
+            cout << Colour << ' ';
+        }
+        
+        cout << '\n';
+    }
+}
+
+
+int main()
+{
+    Solution();
+}
