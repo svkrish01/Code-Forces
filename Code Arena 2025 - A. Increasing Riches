@@ -1,0 +1,58 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 21-09-2025
+Platform    - Code Forces, Code Arena 2025 (CP Guild Recruitment)
+Round       - 182 (Division 2)
+*/
+
+//Code Arena 2025 - A. Increasing Riches
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void Solution()
+{
+    int Difference = 0;
+    
+    vector<int> Treasures;
+    int Number;
+    
+    cin >> Number;
+    
+    for(int X = 0; X < Number; X++)
+    {
+        int Temp;
+        
+        cin >> Temp;
+        
+        Treasures.push_back(Temp);
+    }
+    
+    for(int X = 1; X < Number; X++)
+    {
+        if(Treasures[X] <= Treasures[X-1])
+        {
+            Difference += Treasures[X-1] - Treasures[X] + 1;
+            
+            Treasures[X] = Treasures[X-1] + 1;
+        }
+    }
+
+    
+    cout << Difference << '\n';
+}
+
+
+int main()
+{
+    int Cases;
+    int Number;
+    
+    cin >> Cases;
+    
+    for(int X = 0; X < Cases; X++)
+    {
+        Solution();
+    }
+}
