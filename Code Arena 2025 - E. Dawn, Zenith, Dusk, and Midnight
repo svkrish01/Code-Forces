@@ -1,0 +1,112 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 22-09-2025
+Platform    - Code Forces
+Round       - Code Arena 2025 (CP Guild Recruitment, Division 1)
+*/
+
+//Code Arena 2025 - E. Dawn, Zenith, Dusk, and Midnight
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void Solution()
+{
+    long long Max = 0;
+    int I = -1;
+    int J = -1;
+    
+    int N;
+    
+    cin >> N;
+    
+    vector<vector<long long>> Sum (N, vector<long long>(N, 0));
+
+    for(int X = 0; X < N; X++)
+    {
+        for(int Y = 0; Y < N;  Y++)
+        {
+            char Temp;
+            long long Value;
+            
+            cin >> Temp;
+            
+            if(Temp == '#')
+            {
+                Value = 1;
+            }
+            else
+            {
+                Value = 0;
+            }
+            
+            if(X > 0)
+            {
+                if(Y > 0)
+                {
+                    Sum[X][Y] = Sum[X-1][Y] + Sum[X][Y-1] - Sum[X-1][Y-1] +  Value;
+                }
+                else
+                {
+                    Sum[X][Y] = Sum[X-1][Y] + Value;
+                }
+            }
+            else
+            {
+                if(Y > 0)
+                {
+                    Sum[X][Y] = Sum[X][Y-1] + Value;
+                }
+                else
+                {
+                    Sum[X][Y] = Value;
+                }
+            }
+        }
+    }
+    
+    for(int X = 1; X < N; X++)
+    {
+        for(int Y = 1; Y < N; Y++)
+        {
+            long long A = Sum[X-1][Y-1];
+            long long B = Sum[X-1][N-1] - A;
+            long long C = Sum[N-1][Y-1] - A;
+            long long D = Sum[N-1][N-1] - (A + B + C);
+            
+            long long Product = A * B * C * D;
+            
+            if(Product > Max)
+            {
+                Max = Product;
+                I = X;
+                J = Y;
+            }
+            else if(Product == Max)
+            {
+                if(X > I)
+                {
+                    I = X;
+                    J = Y;
+                }
+                else if(X == I)
+                {
+                    if(Y > J)
+                    {
+                        I = X;
+                        J = Y;
+                    }
+                }
+            }
+        }
+    }
+
+    cout << Max << '\n' << I << ' ' << J << '\n';
+}
+
+
+int main()
+{
+    Solution();
+}
