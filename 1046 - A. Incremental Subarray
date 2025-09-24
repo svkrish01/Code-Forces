@@ -1,0 +1,75 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 24-09-2025
+Platform    - Code Forces
+Round       - 1053 (Division 2)
+*/
+
+//1046 - A. Incremental Subarray
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void Solution()
+{
+    int N, M;
+    vector<int> Favourite;
+    
+    int Drop = 0;
+    int Max = 0;
+    
+    cin >> N >> M;
+    
+    for(int X = 0; X < M; X++)
+    {
+        int Temp;
+        
+        cin >> Temp;
+        
+        Favourite.push_back(Temp);
+    }
+    
+    for(int X = 0; X < M; X++)
+    {
+        if(Favourite[X] > Max)
+        {
+            Max = Favourite[X];
+        }
+        
+        if(X == 0)
+        {
+            continue;
+        }
+        
+        if((Favourite[X-1] + 1) != Favourite[X])
+        {
+            Drop++;
+        }
+    }
+    
+    if(Drop > 0)
+    {
+        cout << 1 << '\n';
+    }
+    else
+    {
+        cout << ((N+1)- Max) << '\n';
+    }
+}
+
+
+int main()
+{
+    int Cases;
+    int Number;
+    
+    cin >> Cases;
+    
+    for(int X = 0; X < Cases; X++)
+    {
+        Solution();
+    }
+    
+    return 0;
+}
