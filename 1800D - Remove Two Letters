@@ -1,0 +1,58 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 27-11-2025
+Platform    - Code Forces
+*/
+
+//1800D - Remove Two Letters
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+void Solution()
+{
+    int Count = 0;
+    
+    vector<char> String;
+    int Length;
+    
+    cin >> Length;
+    
+    for(int X = 0; X < Length; X++)
+    {
+        char Temp;
+        
+        cin >> Temp;
+        
+        String.push_back(Temp);
+    }
+    
+    for(int X = 0; X < Length-1; X++)
+    {
+        if(X <= Length-3 && String[X] == String[X+2])
+        {
+            continue;
+        }
+        else
+        {
+            Count++;
+        }
+    }
+    
+    cout << Count << '\n';
+}
+
+int main()
+{
+    int Cases;
+    
+    cin >> Cases;
+    
+    for(int X = 0; X < Cases; X++)
+    {
+        Solution();
+    }
+    
+    return 0;
+}
