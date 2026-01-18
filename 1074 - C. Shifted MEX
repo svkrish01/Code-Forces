@@ -1,0 +1,63 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 18-01-2026
+Platform    - Code Forces
+Round       - 1074 (Division 4)
+*/
+
+// 1074 - C. Shifted MEX
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void Solution()
+{
+    int MEX = 0;
+    
+    int Numbers;
+    vector<int> Values;
+    
+    cin >> Numbers;
+    
+    for(int X = 0; X < Numbers; X++)
+    {
+        int Temp;
+        
+        cin >> Temp;
+        
+        Values.push_back(Temp);
+    }
+    
+    sort(Values.begin(), Values.end());
+    
+    int Min = Values[0];
+        
+    for(int X = 0; X <= Numbers-1; X++)
+    {
+        if(Values[X] + 1 < Values[X+1])
+        {
+            MEX = max(Values[X] - Min + 1, MEX);
+            Min = Values[X+1];
+        }
+    }
+    
+
+    MEX = max(Values[Numbers-1] - Min + 1, MEX);
+    
+    cout << MEX << "\n";
+}
+
+int main()
+{
+    int Cases;
+    
+    cin >> Cases;
+    
+    for(int X = 0; X < Cases; X++)
+    {
+        Solution();
+    }
+    
+    return 0;
+}
