@@ -1,0 +1,40 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 18-01-2026
+Platform    - Code Forces
+Round       - 1074 (Division 4)
+*/
+
+// 1074 - A. Perfect Root
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void Solution()
+{
+    int Number;
+    
+    cin >> Number;
+    
+    for(int X = 1; X <= Number; X++)
+    {
+        cout << X*X << " ";
+    }
+    
+    cout << "\n";
+}
+
+int main()
+{
+    int Cases;
+    
+    cin >> Cases;
+    
+    for(int X = 0; X < Cases; X++)
+    {
+        Solution();
+    }
+    
+    return 0;
+}
