@@ -1,0 +1,46 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 18-01-2026
+Platform    - Code Forces
+Round       - 1074 (Division 4)
+*/
+
+// 1074 - B. Prefix Max
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void Solution()
+{
+    int Max = -1;
+    
+    int Numbers;
+    
+    cin >> Numbers;
+    
+    for(int X = 0; X < Numbers; X++)
+    {
+        int Temp;
+        
+        cin >> Temp;
+        
+        Max = max(Max,  Temp);
+    }
+    
+    cout << Max * Numbers << "\n";
+}
+
+int main()
+{
+    int Cases;
+    
+    cin >> Cases;
+    
+    for(int X = 0; X < Cases; X++)
+    {
+        Solution();
+    }
+    
+    return 0;
+}
